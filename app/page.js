@@ -1,69 +1,58 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client';
+
+import { useState, useEffect } from 'react';
+import Navbar from '@/components/Navbar';
+import Hero from '@/components/Hero';
+import Stats from '@/components/Stats';
+import TechTicker from '@/components/TechTicker';
+import Services from '@/components/Services';
+import Process from '@/components/Process';
+import Work from '@/components/Work';
+import Team from '@/components/Team';
+import WhyUs from '@/components/WhyUs';
+import Reviews from '@/components/Reviews';
+import Faq from '@/components/Faq';
+import LeadBanner from '@/components/LeadBanner';
+import Footer from '@/components/Footer';
+import SearchModal from '@/components/SearchModal';
+import BackToTop from '@/components/BackToTop';
 
 export default function Home() {
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (
+        (e.key === 'k' && (e.ctrlKey || e.metaKey)) ||
+        (e.key === '/' && !/input|textarea|select/i.test(document.activeElement?.tagName || ''))
+      ) {
+        e.preventDefault();
+        setIsSearchOpen(true);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.js</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <Navbar onOpenSearch={() => setIsSearchOpen(true)} />
+      <main>
+        <Hero />
+        <Stats />
+        <TechTicker />
+        <Services />
+        <Process />
+        <Work />
+        <Team />
+        <WhyUs />
+        <Reviews />
+        <Faq />
+        <LeadBanner />
       </main>
-    </div>
+      <Footer />
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
+      <BackToTop />
+    </>
   );
 }
