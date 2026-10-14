@@ -165,11 +165,19 @@ export default function Hero() {
 
           <div className="hrate">
             <div className="hav" aria-hidden="true">
-              <span style={{ '--c': '#36b0b9' }}>J</span>
-              <span style={{ '--c': '#f75307' }}>E</span>
-              <span style={{ '--c': '#36b0b9' }}>R</span>
-              <span style={{ '--c': '#f75307' }}>S</span>
-              <span className="more">439+</span>
+              <span>
+                <img src="/images/avatars/avatar-1.webp" alt="Client avatar" width="38" height="38" />
+              </span>
+              <span>
+                <img src="/images/avatars/avatar-2.webp" alt="Client avatar" width="38" height="38" />
+              </span>
+              <span>
+                <img src="/images/avatars/avatar-3.webp" alt="Client avatar" width="38" height="38" />
+              </span>
+              <span>
+                <img src="/images/avatars/avatar-4.webp" alt="Client avatar" width="38" height="38" />
+              </span>
+              <span className="more">313+</span>
             </div>
             <div>
               <div className="hst" role="img" aria-label="4.9 out of 5 stars">

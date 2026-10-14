@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Work() {
   const projects = [
     {
@@ -7,7 +9,7 @@ export default function Work() {
       img: '/images/work-web-seo.webp',
       alt: 'Website Development and SEO Case Study',
       location: 'Australia',
-      link: 'https://minchowcoders.com/case-studies/'
+      link: '/case-studies'
     },
     {
       title: 'AI Automation & Agents',
@@ -16,7 +18,7 @@ export default function Work() {
       img: '/images/work-ai-automation.webp',
       alt: 'AI Automation Case Study',
       location: 'Australia',
-      link: 'https://minchowcoders.com/case-studies/'
+      link: '/case-studies'
     },
     {
       title: 'Meta Ads & Paid Funnels',
@@ -25,7 +27,7 @@ export default function Work() {
       img: '/images/work-meta-ads.webp',
       alt: 'Meta Ads Case Study',
       location: 'Australia',
-      link: 'https://minchowcoders.com/case-studies/'
+      link: '/case-studies'
     },
     {
       title: 'Custom Web Engineering',
@@ -34,7 +36,7 @@ export default function Work() {
       img: '/images/work-custom-web.webp',
       alt: 'Custom Web Development Case Study',
       location: 'Australia',
-      link: 'https://minchowcoders.com/case-studies/'
+      link: '/case-studies'
     },
     {
       title: 'Local SEO Dominance',
@@ -43,7 +45,7 @@ export default function Work() {
       img: '/images/work-local-seo.webp',
       alt: 'Local SEO Case Study',
       location: 'Australia',
-      link: 'https://minchowcoders.com/case-studies/'
+      link: '/case-studies'
     },
     {
       title: 'High-Intent Google Ads',
@@ -52,7 +54,7 @@ export default function Work() {
       img: '/images/work-google-ads.webp',
       alt: 'Google Ads Case Study',
       location: 'Australia',
-      link: 'https://minchowcoders.com/case-studies/'
+      link: '/case-studies'
     },
     {
       title: 'UI/UX Design Systems',
@@ -61,7 +63,7 @@ export default function Work() {
       img: '/images/work-ui-ux.webp',
       alt: 'UI/UX Design Case Study',
       location: 'Australia',
-      link: 'https://minchowcoders.com/case-studies/'
+      link: '/case-studies'
     }
   ];
 
@@ -78,25 +80,13 @@ export default function Work() {
           <p className="sub" style={{ marginBottom: '26px' }}>
             We build websites, automate daily workflows, and help international brands reach more high-value customers.
           </p>
-          <a
-            className="btn bt"
-            style={{ borderRadius: '99px' }}
-            href="https://minchowcoders.com/case-studies/"
-            target="_blank"
-            rel="noopener"
-          >
+          <Link className="btn bt" style={{ borderRadius: '99px' }} href="/case-studies">
             View More Case Studies →
-          </a>
+          </Link>
         </div>
 
         {projects.map((proj, idx) => (
-          <a
-            className="wc rv in"
-            key={idx}
-            href={proj.link}
-            target="_blank"
-            rel="noopener"
-          >
+          <Link className="wc rv in" key={idx} href={proj.link}>
             <div className="wa">
               <img
                 src={proj.img}
@@ -124,7 +114,7 @@ export default function Work() {
                 View Details <i>→</i>
               </span>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </section>

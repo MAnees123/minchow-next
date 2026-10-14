@@ -28,7 +28,7 @@ export default function Navbar({ onOpenSearch }) {
     document.documentElement.setAttribute('data-theme', next);
     try {
       localStorage.setItem('mc-theme', next);
-    } catch {}
+    } catch { }
   };
 
   useEffect(() => {
@@ -74,9 +74,10 @@ export default function Navbar({ onOpenSearch }) {
   };
 
   const isHomeActive = pathname === '/' && activeSec === 'top';
-  const isServicesActive = pathname === '/' && activeSec === 'services';
+  const isServicesActive = pathname === '/services';
   const isAboutActive = pathname === '/about';
   const isBundleActive = pathname === '/bundle';
+  const isCaseActive = pathname === '/case-studies';
   const isInsightsActive = pathname === '/insights';
   const isContactActive = pathname === '/contact' || (pathname === '/' && activeSec === 'quote');
 
@@ -101,20 +102,20 @@ export default function Navbar({ onOpenSearch }) {
           >
             Home
           </Link>
-          <a
-            href={pathname === '/' ? '#services' : '/#services'}
+          <Link
+            href="/services"
             className={isServicesActive ? 'active' : ''}
-            onClick={(e) => handleLinkClick(e, '#services')}
+            onClick={() => setMobileMenuOpen(false)}
           >
             Services
-          </a>
-          <a
-            href="https://minchowcoders.com/insights/category/book-summaries/"
-            target="_blank"
-            rel="noopener"
+          </Link>
+          <Link
+            href="/case-studies"
+            className={isCaseActive ? 'active' : ''}
+            onClick={() => setMobileMenuOpen(false)}
           >
-            Book Summaries
-          </a>
+            Case Study
+          </Link>
           <Link
             href="/bundle"
             className={isBundleActive ? 'active' : ''}
@@ -182,7 +183,7 @@ export default function Navbar({ onOpenSearch }) {
 
           <Link
             className="btn bo navcta"
-            href="/contact"
+            href="https://wa.me/8809638920244?text=Hi%20MinchowCoders%2C%20I%27d%20like%20to%20discuss%20a%20project."
             style={{ padding: '10px 18px' }}
             onClick={() => setMobileMenuOpen(false)}
           >

@@ -24,7 +24,7 @@ export default function LeadBanner() {
             <h2>
               Ready to build something <span className="grad">smarter</span>?
             </h2>
-            <p>Tell us about your idea and get a free quote within 24 hours.</p>
+            <p>Tell us about your idea and get a free quote within 1 hours.</p>
             <a
               className="btn bo"
               href="mailto:support@minchowcoders.com?subject=Free%20quote%20request"

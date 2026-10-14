@@ -1,4 +1,5 @@
 import './globals.css';
+import ScrollToTop from '@/components/ScrollToTop';
 
 export const metadata = {
   title: 'MinchowCoders | AI & Software Development Studio',
@@ -77,7 +78,7 @@ const jsonLd = {
       ],
       contactPoint: {
         '@type': 'ContactPoint',
-        telephone: '+8809638920244',
+        telephone: '+8801341663704',
         contactType: 'customer service',
         availableLanguage: ['English', 'Bengali']
       }
@@ -98,7 +99,7 @@ const jsonLd = {
       url: 'https://minchowcoders.com',
       priceRange: '$$',
       image: 'https://minchowcoders.com/images/logo.webp',
-      telephone: '+8809638920244',
+      telephone: '+8801341663704',
       serviceType: [
         'Custom Web Development',
         'AI Agents & Automation',
@@ -156,7 +157,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -174,7 +175,10 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>{children}</body>
+      <body suppressHydrationWarning>
+        <ScrollToTop />
+        {children}
+      </body>
     </html>
   );
 }

@@ -3,15 +3,17 @@
 import { useEffect, useRef, useState } from 'react';
 
 const STATS_DATA = [
-  { target: 120, suffix: '+', label: 'Projects delivered' },
-  { target: 60, suffix: '+', label: 'Happy clients' },
-  { target: 98, suffix: '%', label: 'On-time delivery' },
-  { target: 24, suffix: '/7', label: 'Support coverage' }
+  { target: 98, suffix: '%', label: 'On-Time Delivery', decimals: 0 },
+  { target: 415, suffix: '+', label: 'Services Delivered', decimals: 0 },
+  { target: 4.9, suffix: '/5', label: 'Client Rating', decimals: 1 },
+  { target: 24, suffix: '/7', label: 'Response Time', decimals: 0 }
 ];
 
 export default function Stats() {
   const sectionRef = useRef(null);
-  const [counts, setCounts] = useState(STATS_DATA.map(() => 0));
+  const [counts, setCounts] = useState(
+    STATS_DATA.map((item) => (item.decimals > 0 ? '0.0' : '0'))
+  );
   const hasAnimated = useRef(false);
 
   useEffect(() => {
@@ -23,25 +25,42 @@ export default function Stats() {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !hasAnimated.current) {
             hasAnimated.current = true;
-            STATS_DATA.forEach((stat, idx) => {
-              const step = Math.max(1, Math.round(stat.target / 45));
-              let cur = 0;
-              const timer = setInterval(() => {
-                cur = Math.min(stat.target, cur + step);
-                setCounts((prev) => {
-                  const copy = [...prev];
-                  copy[idx] = cur;
-                  return copy;
-                });
-                if (cur >= stat.target) {
-                  clearInterval(timer);
-                }
-              }, 30);
-            });
+            const duration = 1800;
+            const startTime = performance.now();
+
+            const animate = (now) => {
+              const elapsed = now - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              // Ease-out cubic for a fast start and smooth landing
+              const ease = 1 - Math.pow(1 - progress, 3);
+
+              setCounts(
+                STATS_DATA.map((item) => {
+                  const val = item.target * ease;
+                  return item.decimals > 0
+                    ? val.toFixed(item.decimals)
+                    : Math.round(val);
+                })
+              );
+
+              if (progress < 1) {
+                requestAnimationFrame(animate);
+              } else {
+                setCounts(
+                  STATS_DATA.map((item) =>
+                    item.decimals > 0
+                      ? item.target.toFixed(item.decimals)
+                      : String(item.target)
+                  )
+                );
+              }
+            };
+
+            requestAnimationFrame(animate);
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
     observer.observe(el);
@@ -49,18 +68,21 @@ export default function Stats() {
   }, []);
 
   return (
-    <section className="stats" id="stats" ref={sectionRef}>
-      <div className="wrap sg">
-        {STATS_DATA.map((item, idx) => (
-          <div className="rv in" key={idx}>
-            <b>
-              {counts[idx]}
-              {item.suffix}
-            </b>
-            <span>{item.label}</span>
-          </div>
-        ))}
+    <section className="stats" id="stats" ref={sectionRef} aria-label="Performance Statistics">
+      <div className="wrap">
+        <div className="sg">
+          {STATS_DATA.map((item, idx) => (
+            <div className="stat-item rv in" key={idx}>
+              <b className="stat-num">
+                {counts[idx]}
+                <span className="stat-suffix">{item.suffix}</span>
+              </b>
+              <span className="stat-label">{item.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
+

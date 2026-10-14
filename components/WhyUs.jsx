@@ -3,8 +3,8 @@ export default function WhyUs() {
     {
       metric: '99.9%',
       metricLabel: 'UPTIME',
-      title: 'Enterprise-Grade Reliability',
-      description: 'Every solution we deliver is built with security-first architecture and monitored for 99.9% uptime.',
+      title: 'Affordable Pricing',
+      description: 'We deliver high-quality work at affordable prices—without compromising on quality, attention to detail, or the results your business deserves.',
       color: '#36b0b9',
       colorText: 'var(--tt)',
       icon: (

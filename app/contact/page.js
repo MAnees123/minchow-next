@@ -40,7 +40,7 @@ export default function ContactPage() {
   const faqs = [
     {
       q: 'What happens after I submit the contact form?',
-      a: 'We review your message and reply within 24 hours, usually sooner. We will ask any follow-up questions and suggest the next step, such as a short call or a written quote.',
+      a: 'We review your message and reply within 1 hours, usually sooner. We will ask any follow-up questions and suggest the next step, such as a short call or a written quote.',
     },
     {
       q: 'Do you offer free consultations?',
@@ -66,7 +66,7 @@ export default function ContactPage() {
         <div className="wrap">
           <h1>Contact Us</h1>
           <div className="bar"></div>
-          <p className="hs">Tell us about your idea and get a free quote within 24 hours.</p>
+          <p className="hs">Tell us about your idea and get a free quote within 1 hours.</p>
         </div>
       </header>
 
@@ -74,7 +74,7 @@ export default function ContactPage() {
         <div className="cg">
           <section className="card cf rv in">
             <h2>Send Us a Message</h2>
-            <p className="s2">Fill out the form below and we’ll get back to you within 24 hours.</p>
+            <p className="s2">Fill out the form below and we’ll get back to you within 1 hours.</p>
             <hr className="hr" />
 
             {formSubmitted ? (
@@ -85,7 +85,7 @@ export default function ContactPage() {
                 </h3>
                 <p style={{ color: 'var(--mu)', maxWidth: '460px', margin: '0 auto 24px', lineHeight: 1.6 }}>
                   Your message has been received. Our team will review your project details and get back to you at{' '}
-                  <strong style={{ color: 'var(--ot)' }}>{formData.email}</strong> within 24 hours.
+                  <strong style={{ color: 'var(--ot)' }}>{formData.email}</strong> within 1 hours.
                 </p>
                 <button
                   type="button"
@@ -268,7 +268,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <small>PHONE</small>
-                    <a href="tel:+8809638920244">+8809638920244</a>
+                    <a href="tel:+8801341663704">+8801341663704</a>
                   </div>
                 </li>
                 <li>
@@ -291,7 +291,7 @@ export default function ContactPage() {
                   <div>
                     <small>WHATSAPP</small>
                     <a href="https://wa.me/8809638920244" target="_blank" rel="noopener">
-                      +8809638920244
+                      +8801341663704
                     </a>
                   </div>
                 </li>
@@ -314,7 +314,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <small>LOCATION</small>
-                    <span>100% Remote | Based in Bangladesh</span>
+                    <span>CQQF+R23, Manik Fakirer Gali, Haruya, Kishoreganj Sadar 2300, Bangladesh</span>
                   </div>
                 </li>
                 <li>
@@ -336,7 +336,7 @@ export default function ContactPage() {
                   </span>
                   <div>
                     <small>RESPONSE TIME</small>
-                    <span>Within 24 hours</span>
+                    <span>within 1 hours</span>
                   </div>
                 </li>
               </ul>

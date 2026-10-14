@@ -59,14 +59,14 @@ export default function Footer() {
             <h4>Our Services</h4>
             <ul>
               <li>
-                <a href="/#services">
+                <Link href="/services">
                   Web &amp; Next.js Development
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/#services">
+                <Link href="/services">
                   SEO &amp; Growth Marketing
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href="/contact">
@@ -74,9 +74,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="/#services">
+                <Link href="/services">
                   AI &amp; Workflow Automation
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -85,34 +85,40 @@ export default function Footer() {
             <h4>Company &amp; Quick Links</h4>
             <ul>
               <li>
-                <Link href="/about">
-                  About Us
-                </Link>
+                <Link href="/about">About Us</Link>
               </li>
               <li>
-                <Link href="/bundle">
-                  Bundle Packages
-                </Link>
+                <Link href="/bundle">Bundle Packages</Link>
               </li>
               <li>
-                <Link href="/insights">
-                  Insights &amp; Articles
-                </Link>
+                <Link href="/insights">Insights &amp; Articles</Link>
               </li>
               <li>
-                <Link href="/contact">
-                  Contact Us
-                </Link>
+                <Link href="/contact">Contact Us</Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Legal &amp; Policies</h4>
+            <ul>
+              <li>
+                <Link href="/legal/privacy-policy">Privacy Policy</Link>
               </li>
               <li>
-                <a href="https://minchowcoders.com/privacy_policy" target="_blank" rel="noopener">
-                  Privacy Policy
-                </a>
+                <Link href="/legal/terms-of-service">Terms of Service</Link>
               </li>
               <li>
-                <a href="https://minchowcoders.com/terms_and_conditions" target="_blank" rel="noopener">
-                  Terms of Service
-                </a>
+                <Link href="/legal/refund-policy">Refund &amp; Cancellation</Link>
+              </li>
+              <li>
+                <Link href="/legal/revision-policy">Revision &amp; Scope</Link>
+              </li>
+              <li>
+                <Link href="/legal/sla">Service Level Agreement</Link>
+              </li>
+              <li>
+                <Link href="/legal/ip-rights">IP Rights Policy</Link>
               </li>
             </ul>
           </div>
@@ -121,14 +127,14 @@ export default function Footer() {
             <h4>Get In Touch</h4>
             <p>
               <span>Phone:</span>{' '}
-              <a href="tel:+8809638920244">+8809638920244</a>
+              <a href="tel:+8801341663704">+8801341663704</a>
               <br />
               <span>Email:</span>{' '}
               <a href="mailto:support@minchowcoders.com">support@minchowcoders.com</a>
             </p>
             <p className="fo">
               <b>
-                Global Office: 100% Remote | Based in Bangladesh
+                CQQF+R23, Manik Fakirer Gali, Haruya, Kishoreganj Sadar 2300, Bangladesh
                 <br />
                 Specialized in Digital Services for the Australian &amp; Global Market
               </b>

@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Services() {
   const services = [
     {
@@ -61,25 +63,14 @@ export default function Services() {
             We provide end-to-end digital engineering services to help you build, market, and automate
             your business for long-term compounding growth.
           </p>
-          <a
-            className="btn bt"
-            href="https://minchowcoders.com/services/"
-            target="_blank"
-            rel="noopener"
-          >
+          <Link className="btn bt" href="/services">
             Explore All Services →
-          </a>
+          </Link>
         </div>
 
         <div className="svr">
           {services.map((item, idx) => (
-            <a
-              className="sc rv in"
-              key={idx}
-              href={item.link}
-              target="_blank"
-              rel="noopener"
-            >
+            <Link className="sc rv in" key={idx} href="/services">
               <div className="si" style={{ '--c': item.color }}>
                 {item.icon}
               </div>
@@ -98,7 +89,7 @@ export default function Services() {
                   <path d="M4 12h15M13 5l7 7-7 7" />
                 </svg>
               </span>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

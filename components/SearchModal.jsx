@@ -13,7 +13,7 @@ const SEARCH_INDEX = [
   { t: 'FAQ', d: 'Pricing, timelines, support and tech stack', h: '#faq', k: 'faq questions pricing price timeline support industries existing team' },
   { t: 'Get a Free Quote', d: 'Tell us about your project or idea', h: '#quote', k: 'contact quote email start project' },
   { t: 'Insights & Articles', d: 'Technical guides on AI, Next.js, SEO and automation', h: 'https://minchowcoders.com/insights/', k: 'blog articles news ai agents seo', x: true },
-  { t: 'Book Summaries', d: 'Top learning book summaries for founders', h: 'https://minchowcoders.com/insights/category/book-summaries/', k: 'books lean startup good to great', x: true },
+  { t: 'Case Study', d: 'Top learning book summaries for founders', h: 'https://minchowcoders.com/insights/category/book-summaries/', k: 'books lean startup good to great', x: true },
   { t: 'Case Studies Full', d: 'Detailed metrics and results we delivered', h: 'https://minchowcoders.com/case-studies/', k: 'case studies results', x: true }
 ];
 
