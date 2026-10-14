@@ -1,4 +1,5 @@
 import ServicesClient from './ServicesClient';
+import { getServices } from '@/lib/cms';
 
 export const metadata = {
   title: 'Services | Minchow Coders',
@@ -15,6 +16,7 @@ export const metadata = {
   },
 };
 
-export default function ServicesPage() {
-  return <ServicesClient />;
+export default async function ServicesPage() {
+  const services = await getServices();
+  return <ServicesClient services={services} />;
 }

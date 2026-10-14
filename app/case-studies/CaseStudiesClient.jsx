@@ -6,7 +6,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SearchModal from '@/components/SearchModal';
 import BackToTop from '@/components/BackToTop';
-import { CASE_STUDIES, CS_CATEGORIES } from './data';
 
 const COVER_ICONS = {
   chip: (
@@ -45,11 +44,12 @@ function Cover({ cs, tone }) {
   );
 }
 
-export default function CaseStudiesClient() {
+export default function CaseStudiesClient({ caseStudies }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [category, setCategory] = useState('All Work');
 
-  const visible = CASE_STUDIES.filter((c) => category === 'All Work' || c.cat === category);
+  const categories = ['All Work', ...new Set(caseStudies.map((c) => c.cat))];
+  const visible = caseStudies.filter((c) => category === 'All Work' || c.cat === category);
 
   return (
     <>
@@ -77,7 +77,7 @@ export default function CaseStudiesClient() {
 
         <div className="tools" style={{ justifyContent: 'center' }}>
           <div className="chips" role="tablist" aria-label="Case study categories">
-            {CS_CATEGORIES.map((c) => (
+            {categories.map((c) => (
               <button
                 key={c}
                 type="button"

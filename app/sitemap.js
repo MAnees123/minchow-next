@@ -1,7 +1,8 @@
 import { ARTICLES } from './insights/articles';
-import { SERVICES } from './services/data';
+import { getServices } from '@/lib/cms';
 
-export default function sitemap() {
+export default async function sitemap() {
+  const services = await getServices();
   const baseUrl = 'https://minchowcoders.com';
   const currentDate = '2026-10-14';
 
@@ -12,7 +13,7 @@ export default function sitemap() {
     priority: 0.8,
   }));
 
-  const serviceEntries = SERVICES.map((s) => ({
+  const serviceEntries = services.map((s) => ({
     url: `${baseUrl}/services/${s.slug}`,
     lastModified: currentDate,
     changeFrequency: 'monthly',

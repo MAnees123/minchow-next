@@ -1,38 +1,7 @@
-export default function Team() {
-  const members = [
-    {
-      num: '01',
-      initials: 'OGP',
-      name: 'Osman Goni Peyas',
-      role: 'Founder & CEO',
-      color: '#36b0b9',
-      colorText: 'var(--tt)'
-    },
-    {
-      num: '02',
-      initials: 'SC',
-      name: 'Sharmin Chowdhury',
-      role: 'Co-Founder & COO',
-      color: '#f75307',
-      colorText: 'var(--ot)'
-    },
-    {
-      num: '03',
-      initials: 'EA',
-      name: 'Easha Ahmed',
-      role: 'Client Relationship Officer',
-      color: '#36b0b9',
-      colorText: 'var(--tt)'
-    },
-    {
-      num: '04',
-      initials: 'AK',
-      name: 'Arif Khan',
-      role: 'Project Manager',
-      color: '#f75307',
-      colorText: 'var(--ot)'
-    }
-  ];
+import { getTeam } from '@/lib/cms';
+
+export default async function Team() {
+  const members = await getTeam();
 
   return (
     <section id="team" style={{ paddingTop: '20px' }}>
@@ -58,16 +27,21 @@ export default function Team() {
         </div>
 
         <div className="tmg">
-          {members.map((m, idx) => (
+          {members.map((m) => (
             <div
               className="tm rv in"
-              key={idx}
-              style={{ '--c': m.color, '--ct': m.colorText }}
+              key={m.id}
+              style={{ '--c': m.color, '--ct': m.color === '#36b0b9' ? 'var(--tt)' : 'var(--ot)' }}
             >
               <div className="tmm">
                 <span className="tn">{m.num}</span>
                 <div className="tav">
-                  <b>{m.initials}</b>
+                  {m.photo ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img src={m.photo} alt={m.name} />
+                  ) : (
+                    <b>{m.initials}</b>
+                  )}
                 </div>
                 <span className="tmc">MC</span>
               </div>

@@ -6,9 +6,6 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import SearchModal from '@/components/SearchModal';
 import BackToTop from '@/components/BackToTop';
-import { SERVICES } from './data';
-
-const CATEGORIES = ['All Services', 'Web Development', 'AI & Automation', 'Marketing', 'Creative'];
 
 const FAQ_ITEMS = [
   {
@@ -29,12 +26,13 @@ const FAQ_ITEMS = [
   },
 ];
 
-export default function ServicesClient() {
+export default function ServicesClient({ services }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [category, setCategory] = useState('All Services');
   const [openIdx, setOpenIdx] = useState(0);
 
-  const visible = SERVICES.filter((s) => category === 'All Services' || s.cat === category);
+  const categories = ['All Services', ...new Set(services.map((s) => s.cat))];
+  const visible = services.filter((s) => category === 'All Services' || s.cat === category);
 
   return (
     <>
@@ -46,7 +44,7 @@ export default function ServicesClient() {
           <div className="glow g2"></div>
           <div className="eyebrow dash">Our Capabilities</div>
           <h1>
-            5 Specialized <span className="grad">Digital Services</span>
+            {services.length} Specialized <span className="grad">Digital Services</span>
           </h1>
           <p>
             Explore everything we do, from websites and AI automation to organic and paid marketing, designed for fast
@@ -56,7 +54,7 @@ export default function ServicesClient() {
 
         <div className="tools" style={{ justifyContent: 'center' }}>
           <div className="chips" role="tablist" aria-label="Service categories">
-            {CATEGORIES.map((c) => (
+            {categories.map((c) => (
               <button
                 key={c}
                 type="button"
@@ -78,15 +76,15 @@ export default function ServicesClient() {
               style={{ animationDelay: `${idx * 60}ms` }}
             >
               <div className="sph">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img className="spimg" src={s.img} alt={s.title} loading="eager" decoding="async" />
+                {s.img && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img className="spimg" src={s.img} alt={s.title} loading="eager" decoding="async" />
+                )}
               </div>
               <div className="spb">
                 <div className="spr">
                   <span className="spi">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      {s.icon}
-                    </svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true" dangerouslySetInnerHTML={{ __html: s.icon || '' }} />
                   </span>
                   <span className="spbadge">{s.badge}</span>
                 </div>

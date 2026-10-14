@@ -1,4 +1,5 @@
 import CaseStudiesClient from './CaseStudiesClient';
+import { getCaseStudies } from '@/lib/cms';
 
 export const metadata = {
   title: 'Case Studies | Minchow Coders',
@@ -15,6 +16,7 @@ export const metadata = {
   },
 };
 
-export default function CaseStudiesPage() {
-  return <CaseStudiesClient />;
+export default async function CaseStudiesPage() {
+  const caseStudies = await getCaseStudies();
+  return <CaseStudiesClient caseStudies={caseStudies} />;
 }
