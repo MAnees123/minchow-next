@@ -1,8 +1,8 @@
 import Link from 'next/link';
-import { getHomeServices } from '@/lib/cms';
+import { getHomeServiceCards } from '@/lib/cms';
 
 export default async function Services() {
-  const services = await getHomeServices();
+  const services = await getHomeServiceCards();
 
   return (
     <section id="services">
@@ -21,8 +21,8 @@ export default async function Services() {
 
         <div className="svr">
           {services.map((item) => (
-            <Link className="sc rv in" key={item.id} href={item.link || '/services'}>
-              <div className="si" style={{ '--c': item.color }}>
+            <Link className="sc rv in" key={item.id} href={`/services/${item.slug}`}>
+              <div className="si" style={{ '--c': item.tone === 't' ? '#36b0b9' : '#f75307' }}>
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -35,7 +35,7 @@ export default async function Services() {
                 />
               </div>
               <h3>{item.title}</h3>
-              <p>{item.description}</p>
+              <p>{item.desc}</p>
               <span className="ar">
                 <svg
                   viewBox="0 0 24 24"

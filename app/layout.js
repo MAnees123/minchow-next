@@ -32,7 +32,7 @@ export const metadata = {
     siteName: 'MinchowCoders',
     images: [
       {
-        url: '/images/logo.webp',
+        url: '/images/og-logo.png',
         width: 1200,
         height: 630,
         alt: 'MinchowCoders - AI & Software Development'
@@ -46,7 +46,7 @@ export const metadata = {
     title: 'MinchowCoders | AI & Software Development',
     description:
       'High-performance software development, AI agents, and automated growth systems engineered for modern businesses.',
-    images: ['/images/logo.webp']
+    images: ['/images/og-logo.png']
   },
   robots: {
     index: true,

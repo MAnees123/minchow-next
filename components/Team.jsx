@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getTeam } from '@/lib/cms';
 
 export default async function Team() {
@@ -16,14 +17,9 @@ export default async function Team() {
               The senior engineers and strategists behind your next successful launch.
             </p>
           </div>
-          <a
-            className="tml"
-            href="https://minchowcoders.com/about/"
-            target="_blank"
-            rel="noopener"
-          >
-            More About Our Team <span>↗</span>
-          </a>
+          <Link className="tml" href="/team">
+            More About Our Team <span>→</span>
+          </Link>
         </div>
 
         <div className="tmg">

@@ -89,8 +89,8 @@ export default function Navbar({ onOpenSearch }) {
             className="logoimg"
             src="/images/logo.webp"
             alt="MinchowCoders"
-            width={520}
-            height={129}
+            width={640}
+            height={180}
           />
         </Link>
 
